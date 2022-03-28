@@ -48,7 +48,7 @@ async function editNote(id, title) {
   const notes = await getNotes()
   index = notes.findIndex((note => note.id == id.toString()));
   console.log('index', index)
-  if(index !== undefined) {
+  if(index !== -1) {
     notes[index].title = title;
     await saveNotes(notes)
     console.log(chalk.blue(`Note with id="${id}" has been change.`))
